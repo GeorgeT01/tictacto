@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:gravity="center"
+    android:background="@color/colorPrimary">
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="TextView"-->
+<!--        app:fontFamily="@font/nothing_you_could_do" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:targetApi="jelly_bean"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:ignore="ButtonStyle"
+                tools:targetApi="jelly_bean" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:ignore="ButtonStyle"
+                tools:targetApi="jelly_bean" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:ignore="ButtonStyle"
+                tools:targetApi="jelly_bean" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:ignore="ButtonStyle"
+                tools:targetApi="jelly_bean" />
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:ignore="ButtonStyle"
+                tools:targetApi="jelly_bean" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:weightSum="3"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/btn7"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:ignore="ButtonStyle"
+                tools:targetApi="jelly_bean" />
+
+            <Button
+                android:id="@+id/btn8"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:ignore="ButtonStyle"
+                tools:targetApi="jelly_bean" />
+
+            <Button
+                android:id="@+id/btn9"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="75sp"
+                android:fontFamily="@font/nothing_you_could_do"
+                android:background="#ffebee"
+                android:layout_margin="5dp"
+                tools:ignore="ButtonStyle"
+                tools:targetApi="jelly_bean" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

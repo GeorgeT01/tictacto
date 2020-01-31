@@ -147,6 +147,14 @@
                 tools:ignore="ButtonStyle"
                 tools:targetApi="jelly_bean" />
         </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GEA \u00A9 2020"
+            android:textColor="#111111"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginTop="150dp"/>
     </LinearLayout>
 
 

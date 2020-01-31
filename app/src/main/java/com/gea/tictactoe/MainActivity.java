@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String _o = "O";
     boolean xplayer = true;
     int counter = 0;
+    String win = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,57 +80,83 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
+
     private void play(Button btn){
+
         if (xplayer){
             btn.setTextColor(Color.parseColor("#ff4444"));
             btn.setText(_x);
             xplayer = false;
-        }else{
-            btn.setText(_o);
-            btn.setTextColor(Color.parseColor("#4285F4"));
-            xplayer = true;
+            btn.setClickable(false);
+            counter++;
+            if (win == null)
+                checkWinner();
+            if (counter < 8){
+                ai_player();
+                if (win == null)
+                    checkWinner();
+            }
+
+
         }
-        btn.setClickable(false);
-        counter++;
-        checkWinner();
+
     }
 
     private void checkWinner(){
+
         if (btn1.getText().equals(_x) && btn2.getText().equals(_x) && btn3.getText().equals(_x)){
-            showAlertDialog("Player X wins");
+            showAlertDialog("X Выигрывает");
+            win = _x;
         }else if(btn1.getText().equals(_o) && btn2.getText().equals(_o) && btn3.getText().equals(_o)){
-            showAlertDialog("Player O wins");
+            showAlertDialog("O Выигрывает");
+            win = _o;
         }else if(btn1.getText().equals(_x) && btn4.getText().equals(_x) && btn7.getText().equals(_x)){
-            showAlertDialog("Player X wins");
+            showAlertDialog("X Выигрывает");
+            win = _x;
         }else if(btn1.getText().equals(_o) && btn4.getText().equals(_o) && btn7.getText().equals(_o)){
-            showAlertDialog("Player O wins");
+            showAlertDialog("O Выигрывает");
+            win = _o;
         }else if(btn4.getText().equals(_x) && btn5.getText().equals(_x) && btn6.getText().equals(_x)){
-            showAlertDialog("Player X wins");
+            showAlertDialog("X Выигрывает");
+            win = _x;
         }else if(btn4.getText().equals(_o) && btn5.getText().equals(_o) && btn6.getText().equals(_o)){
-            showAlertDialog("Player O wins");
+            showAlertDialog("O Выигрывает");
+            win = _o;
         }else if(btn7.getText().equals(_x) && btn8.getText().equals(_x) && btn9.getText().equals(_x)){
-            showAlertDialog("Player X wins");
+            showAlertDialog("X Выигрывает");
+            win = _x;
         }else if(btn7.getText().equals(_o) && btn8.getText().equals(_o) && btn9.getText().equals(_o)){
-            showAlertDialog("Player O wins");
+            showAlertDialog("O Выигрывает");
+            win = _o;
         }else if(btn2.getText().equals(_x) && btn5.getText().equals(_x) && btn8.getText().equals(_x)){
-            showAlertDialog("Player X wins");
+            showAlertDialog("X Выигрывает");
+            win = _x;
         }else if(btn2.getText().equals(_o) && btn5.getText().equals(_o) && btn8.getText().equals(_o)){
-            showAlertDialog("Player O wins");
+            showAlertDialog("O Выигрывает");
+            win = _o;
         }else if(btn3.getText().equals(_x) && btn6.getText().equals(_x) && btn9.getText().equals(_x)){
-            showAlertDialog("Player X wins");
+            showAlertDialog("X Выигрывает");
+            win = _x;
         }else if(btn3.getText().equals(_o) && btn6.getText().equals(_o) && btn9.getText().equals(_o)){
-            showAlertDialog("Player O wins");
+            showAlertDialog("O Выигрывает");
+            win = _o;
         }else if(btn1.getText().equals(_x) && btn5.getText().equals(_x) && btn9.getText().equals(_x)){
-            showAlertDialog("Player X wins");
+            showAlertDialog("X Выигрывает");
+            win = _x;
         }else if(btn1.getText().equals(_o) && btn5.getText().equals(_o) && btn9.getText().equals(_o)){
-            showAlertDialog("Player O wins");
+            showAlertDialog("O Выигрывает");
+            win = _o;
         }else if(btn3.getText().equals(_x) && btn5.getText().equals(_x) && btn7.getText().equals(_x)){
-            showAlertDialog("Player X wins");
+            showAlertDialog("X Выигрывает");
+            win = _x;
         }else if(btn3.getText().equals(_o) && btn5.getText().equals(_o) && btn7.getText().equals(_o)){
-            showAlertDialog("Player O wins");
+            showAlertDialog("O Выигрывает");
+            win = _o;
         }else{
             if (counter == 9){
-            showAlertDialog("Draw");
+                win = "draw";
+            showAlertDialog("Ничья");
             }
         }
     }
@@ -136,8 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         new AlertDialog.Builder(this)
                 .setTitle(txt)
-                .setMessage("Press 'Restart' to play again")
-                .setNeutralButton("Restart", new DialogInterface.OnClickListener() {
+                .setNeutralButton("еще раз", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         restartGame();
                     }
@@ -147,6 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void restartGame(){
         xplayer = true;
+        win = null;
         counter = 0;
         btn1.setClickable(true);
         btn1.setText("");
@@ -168,4 +197,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn9.setClickable(true);
         btn9.setText("");
     }
+
+    private void ai_player(){
+        while (true){
+            if (counter < 8){
+                Button btn = getButton();
+                if(btn.isClickable()){
+                    btn.setText(_o);
+                    btn.setTextColor(Color.parseColor("#4285F4"));
+                    xplayer = true;
+                    btn.setClickable(false);
+                    break;
+                }
+            }else{
+                break;
+            }
+
+        }
+        counter++;
+    }
+
+    private Button getButton(){
+            Random random = new Random();
+            Button button = btn1;
+            int i = random.nextInt(10-1)+1;
+            System.out.println(i);
+            switch (i) {
+                case 0:
+                    button = btn1;
+                    break;
+                case 1:
+                    button = btn2;
+                    break;
+                case 2:
+                    button = btn3;
+                    break;
+                case 3:
+                    button = btn4;
+                    break;
+                case 4:
+                    button = btn5;
+                    break;
+                case 5:
+                    button = btn6;
+                    break;
+                case 6:
+                    button = btn7;
+                    break;
+                case 7:
+                    button = btn8;
+                    break;
+                case 8:
+                    button = btn9;
+                    break;
+            }
+            return button;
+    }
+
+//    private int minimax(){
+//
+//    }
 }
